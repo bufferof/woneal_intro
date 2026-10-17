@@ -1,100 +1,295 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포트폴리오</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  :root{
+    --bg:#0B0B0C;
+    --text:#F2F2F0;
+    --muted:#8A8A88;
+    --line:rgba(255,255,255,0.1);
+    --accent:#E8B44D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--line);}
+
+  h1, h2{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:36px;
+  }
+
+  p{color:var(--muted); font-size:15px;}
+
+  /* ===== HEADER ===== */
+  header{padding:100px 0 60px;}
+  header h1{
+    font-size:32px;
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:-0.01em;
+    text-transform:none;
+    margin-bottom:8px;
+  }
+  header .role{color:var(--accent); font-size:15px; margin-bottom:20px;}
+  header .bio{max-width:480px;}
+
+  /* ===== EXPERIENCE ===== */
+  .exp-item{
+    display:flex;
+    gap:24px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+  .exp-item:first-of-type{border-top:none;}
+  .exp-year{
+    flex:0 0 110px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .exp-role{font-size:15px; font-weight:600; margin-bottom:4px;}
+  .exp-desc{font-size:14px;}
+  .tag-current{
+    display:inline-block;
+    font-size:10px;
+    font-weight:700;
+    color:var(--bg);
+    background:var(--accent);
+    padding:2px 8px;
+    border-radius:999px;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* ===== AWARDS ===== */
+  .award-item{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .award-item:first-of-type{border-top:none;}
+  .award-title{color:var(--text); font-weight:500;}
+  .award-org{color:var(--muted); font-size:13px; margin-top:2px;}
+  .award-year{color:var(--muted); font-size:13px; white-space:nowrap;}
+
+  /* ===== PROJECTS ===== */
+  .project-item{
+    padding:24px 0;
+    border-top:1px solid var(--line);
+  }
+  .project-item:first-of-type{border-top:none;}
+  .project-title{font-size:16px; font-weight:600; color:var(--text); margin-bottom:6px;}
+  .project-desc{font-size:14px; margin-bottom:12px;}
+  .project-tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;}
+  .project-tags span{
+    font-size:11px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    padding:3px 9px;
+    border-radius:999px;
+  }
+  .project-link{font-size:13px; color:var(--accent);}
+  .project-link:hover{text-decoration:underline;}
+
+  /* ===== CONTACT ===== */
+  .contact-item{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .contact-item:first-of-type{border-top:none;}
+  .contact-item span:first-child{color:var(--muted);}
+  .contact-item a:hover{color:var(--accent);}
+
+  footer{
+    padding:40px 0;
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+  }
+</style>
 </head>
 <body>
-    <nav>
-        <h1>Portfolio</h1>
-        <div class="nav-right">
-            <a href="#intro">Home</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 
-    <section id="intro">
-        <div class="intro-content">
-            <h1>HI 👋</h1>
-            <p>네트워크와 서버를 중점적으로 공부하고 있는 학생입니다.</p>
-            <p>새로운 기술을 배우고 적용하는 것을 즐깁니다</p>
-            <p style="margin-top: 20px;">
-                <a href="mailto:hewantsone@example.com">hewantsone@gmail.com</a>
-            </p>
-        </div>
-    </section>
+  <div class="wrap">
+    <header>
+      <h1>정원일</h1>
+      <div class="role">System Engineering</div>
+      <p class="bio">시스템 엔지니어가 되기 위해 온프레미스와 클라우드를 공부하는 학생입니다.</p>
+    </header>
+  </div>
 
-    <section id="skills">
-        <h2>Learning</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Frontend</h3>
-                <span class="skill-description">HTML/CSS/JS, PUG</span>
-            </div>
-            <div class="skill-card">
-                <h3>Backend</h3>
-                <span class="skill-description">Node.js, express.js</span>
-            </div>
-            <div class="skill-card">
-                <h3>Database</h3>
-                <span class="skill-description">MySQL</span>
-            </div>
-            <div class="skill-card">
-                <h3>Tools</h3>
-                <span class="skill-description">Git, Docker, Figma</span>
-            </div>
-            <div class="skill-card">
-                <h3>Network & Server</h3>
-                <span class="skill-description">CCNA, Debian Server</span>
-            </div>
-        </div>
-    </section>
+  <section>
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div id="experience-list"></div>
+    </div>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div>
-                    <h3>프로젝트 1</h3>
-                    <p class="project-description">Python 기반 TCP Port Scanner 제작 1인 프로젝트</p>
-                </div>
-                <a href="https://github.com/bufferof/TCP-Port-Scanner" class="project-link">자세히 보기 →</a>
-            </div>
-            <div class="project-card">
-                <div>
-                    <h3>프로젝트 2</h3>
-                    <p class="project-description">C언어 기반 실시간 시세 반영 암호화폐 모의투자 프로그램 제작</p>
-                </div>
-                <a href="https://docs.google.com/presentation/d/1a7vDFAEtWCvfeMLFkj9bQShiM-Ugit4T/edit?usp=sharing&ouid=101642584827411199881&rtpof=true&sd=true" class="project-link">자세히 보기 →</a>
-            </div>
-            <div class="project-card">
-                <div>
-                    <h3>프로젝트 3</h3>
-                    <p class="project-description">미라이 봇넷 기반 공유기 봇넷 제작</p>
-                </div>
-                <a href="https://drive.google.com/file/d/1Vkh09GdrBkC9B49rB4wBMwfwh4EXWJZf/view?usp=sharing" class="project-link">자세히 보기 →</a>
-            </div>
-        </div>
-    </section>
+  <section>
+    <div class="wrap">
+      <h2>Awards</h2>
+      <div id="awards-list"></div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p style="font-size: 18px; margin-bottom: 20px;">프로젝트 문의 환영합니다</p>
-        <div class="contact-links">
-            <a href="mailto:hewantsone@example.com">Email</a>
-            <a href="https://github.com/bufferof" target="_blank">GitHub</a>
-        </div>
-    </section>
+  <section>
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div id="projects-list"></div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Portfolio. All rights reserved.</p>
-    </footer>
+  <section>
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div id="contact-list"></div>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 정원일. All rights reserved.</footer>
+
+  <script>
+    const experience = [
+      {
+        year: "2025~",
+        role: "선린인터넷고 정보보호과",
+        desc: "선린인터넷고등학교 정보보호과 120기로 재학 중입니다.",
+        current: false
+      }
+    ];
+
+    const awards = [
+      {
+        title: "전국기능경기대회 장려상 (9등)",
+        org: "IT네트워크시스템",
+        year: "2026"
+      },
+      {
+        title: "서울시 지방기능경기대회 동메달 3등",
+        org: "IT네트워크시스템",
+        year: "2026"
+      },
+      {
+        title: "전국기능경기대회 공모전 직종 2위",
+        org: "IT네트워크시스템",
+        year: "2026"
+      },
+      {
+        title: "교내 정보보안 프로젝트 2등",
+        org: "IPTIME 취약점 분석을 기반으로 한 미라이봇넷 프로그램 제작",
+        year: "2025"
+      },
+    ];
+
+    const projects = [
+      {
+        title: "호스팅서비스 모니터링 시스템",
+        desc: "Grafana & Prometheus & UptimeKUMA & AlertManager & Discord Webhook을 이용한 능동적 호스팅 모니터링 시스템 구축",
+        tags: ["Proxmox", "Grafana", "Prometheus", "UptimeKUMA", "AlertManager", "Discord Webhook", "Ubuntu"],
+        link: "https://vanilla-soccer-414.notion.site/Prometheus-Grafana-Uptime-Kuma-R730XD-396c326597138022b945f5d85a40b128?source=copy_link"
+      },
+      {
+        title: "본사-지사 가상 사내망 구축 (진행 중)",
+        desc: "Cisco 계열 레거시 장비들로 본사와 지사, 외부망으로 구성된 인프라 구축",
+        tags: ["Cisco", "Debian", "Bind9", "Ansible", "Dovecot", "Postfix", "Samba-ad-dc", "nfs", "iscsi", "Nginx"],
+        link: "#"
+      },
+      {
+        title: "클라우드 - 온프레미스 하이브리드 DR 환경 구축",
+        desc: "Oracle Cloud Proxmox Pilot Light DR 서버 구축",
+        tags: ["Ubuntu", "OracleCloud", "proxmox", "cloudflare-dns", "nginx"],
+        link: "#"
+      },
+      {
+        title: "유선 네트워크 신호 분석",
+        desc: "FFT 기반 이더넷 Bitrate 주파수 분석 및 코사인파 재구성",
+        tags: ["FFT","Python","iperf3"],
+        link: "#"
+      },
+      {
+        title: "BB84 양자암호 통신 시뮬레이션 웹 개발",
+        desc: "BB84 양자암호 통신 시뮬레이션 웹 제작 및 시연",
+        tags: ["node.js","WebSocket"],
+        link: "#"
+      },
+      {
+        title: "vmware to proxmox 마이그레이션 툴 제작(진행 중)",
+        desc: "vmware vm -> proxmox vm 간편 GUI 툴 제작",
+        tags: ["C++","Proxmox","Vmware","QT GUI"],
+        link: "#"
+      },
+      {
+        title: "사용자 친화형 PaaS 서비스 개발(진행 중)",
+        desc: "Hetzner Cloud와 Proxmox 온프레미스를 융합한 사용자 친화형 PaaS 서비스 개발",
+        tags: ["Proxmox","Hetzner Cloud","Python"],
+        link: "#"
+      },
+    ];
+
+    const contact = [
+      { label: "Email", value: "hewantsone@gmail.com", href: "mailto:hewantsone@gmail.com" },
+      { label: "GitHub", value: "Repository", href: "https://github.com/bufferof" }
+    ];
+
+    document.getElementById("experience-list").innerHTML = experience.map(e => `
+      <div class="exp-item">
+        <div class="exp-year">${e.year}</div>
+        <div>
+          <div class="exp-role">${e.role}${e.current ? '<span class="tag-current">Current</span>' : ''}</div>
+          <div class="exp-desc">${e.desc}</div>
+        </div>
+      </div>
+    `).join("");
+
+    document.getElementById("awards-list").innerHTML = awards.map(a => `
+      <div class="award-item">
+        <div>
+          <div class="award-title">${a.title}</div>
+          <div class="award-org">${a.org}</div>
+        </div>
+        <div class="award-year">${a.year}</div>
+      </div>
+    `).join("");
+
+    document.getElementById("projects-list").innerHTML = projects.map(p => `
+      <div class="project-item">
+        <div class="project-title">${p.title}</div>
+        <div class="project-desc">${p.desc}</div>
+        <div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
+        <a class="project-link" href="${p.link}">자세히 보기 →</a>
+      </div>
+    `).join("");
+
+    document.getElementById("contact-list").innerHTML = contact.map(c => `
+      <div class="contact-item">
+        <span>${c.label}</span>
+        <a href="${c.href}" target="_blank" rel="noopener noreferrer">${c.value}</a>
+      </div>
+    `).join("");
+  </script>
+
 </body>
 </html>
