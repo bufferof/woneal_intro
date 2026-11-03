@@ -1,177 +1,25 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f8fb"><meta name="description" content="정원일 — 시스템 엔지니어 포트폴리오. 인프라, 네트워크, 클라우드와 개발 프로젝트."><title>정원일 — System Engineer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0B0B0C;
-    --text:#F2F2F0;
-    --muted:#8A8A88;
-    --line:rgba(255,255,255,0.1);
-    --accent:#E8B44D;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-  }
-  a{color:inherit; text-decoration:none;}
-  ul{list-style:none;}
-
-  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
-
-  section{padding:88px 0;}
-  section + section{border-top:1px solid var(--line);}
-
-  h1, h2{
-    font-size:14px;
-    font-weight:600;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin-bottom:36px;
-  }
-
-  p{color:var(--muted); font-size:15px;}
-
-  /* ===== HEADER ===== */
-  header{padding:100px 0 60px;}
-  header h1{
-    font-size:32px;
-    font-weight:700;
-    color:var(--text);
-    letter-spacing:-0.01em;
-    text-transform:none;
-    margin-bottom:8px;
-  }
-  header .role{color:var(--accent); font-size:15px; margin-bottom:20px;}
-  header .bio{max-width:480px;}
-
-  /* ===== EXPERIENCE ===== */
-  .exp-item{
-    display:flex;
-    gap:24px;
-    padding:18px 0;
-    border-top:1px solid var(--line);
-  }
-  .exp-item:first-of-type{border-top:none;}
-  .exp-year{
-    flex:0 0 110px;
-    font-size:13px;
-    color:var(--muted);
-  }
-  .exp-role{font-size:15px; font-weight:600; margin-bottom:4px;}
-  .exp-desc{font-size:14px;}
-  .tag-current{
-    display:inline-block;
-    font-size:10px;
-    font-weight:700;
-    color:var(--bg);
-    background:var(--accent);
-    padding:2px 8px;
-    border-radius:999px;
-    margin-left:8px;
-    vertical-align:middle;
-  }
-
-  /* ===== AWARDS ===== */
-  .award-item{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    padding:14px 0;
-    border-top:1px solid var(--line);
-    font-size:14px;
-  }
-  .award-item:first-of-type{border-top:none;}
-  .award-title{color:var(--text); font-weight:500;}
-  .award-org{color:var(--muted); font-size:13px; margin-top:2px;}
-  .award-year{color:var(--muted); font-size:13px; white-space:nowrap;}
-
-  /* ===== PROJECTS ===== */
-  .project-item{
-    padding:24px 0;
-    border-top:1px solid var(--line);
-  }
-  .project-item:first-of-type{border-top:none;}
-  .project-title{font-size:16px; font-weight:600; color:var(--text); margin-bottom:6px;}
-  .project-desc{font-size:14px; margin-bottom:12px;}
-  .project-tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;}
-  .project-tags span{
-    font-size:11px;
-    color:var(--muted);
-    border:1px solid var(--line);
-    padding:3px 9px;
-    border-radius:999px;
-  }
-  .project-link{font-size:13px; color:var(--accent);}
-  .project-link:hover{text-decoration:underline;}
-
-  /* ===== CONTACT ===== */
-  .contact-item{
-    display:flex;
-    justify-content:space-between;
-    padding:14px 0;
-    border-top:1px solid var(--line);
-    font-size:14px;
-  }
-  .contact-item:first-of-type{border-top:none;}
-  .contact-item span:first-child{color:var(--muted);}
-  .contact-item a:hover{color:var(--accent);}
-
-  footer{
-    padding:40px 0;
-    text-align:center;
-    font-size:13px;
-    color:var(--muted);
-  }
-</style>
-</head>
-<body>
-
-  <div class="wrap">
-    <header>
-      <h1>정원일</h1>
-      <div class="role">System Engineering</div>
-      <p class="bio">시스템 엔지니어가 되기 위해 온프레미스와 클라우드를 공부하는 학생입니다.</p>
-    </header>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <h2>Experience</h2>
-      <div id="experience-list"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Awards</h2>
-      <div id="awards-list"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Projects</h2>
-      <div id="projects-list"></div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Contact</h2>
-      <div id="contact-list"></div>
-    </div>
-  </section>
-
-  <footer>&copy; 2026 정원일. All rights reserved.</footer>
-
-  <script>
+:root{--paper:#f7f8fb;--white:#fff;--ink:#192334;--muted:#657185;--blue:#3054e8;--blue-ink:#1f37aa;--rule:#dbe0e9;--soft:#ebefff;--font:'DM Sans','Noto Sans KR',sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.72 var(--font);-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:3px solid #5b77ff;outline-offset:4px}::selection{background:#c8d0ff}.container{width:min(1160px,calc(100% - 64px));margin:auto}.nav-wrap{position:sticky;top:0;z-index:100;background:rgba(247,248,251,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--rule)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:20px;letter-spacing:-.07em;font-weight:800}.logo b{color:var(--blue)}.nav-links{display:flex;align-items:center;gap:34px}.nav-links a{font-size:13px;font-weight:700;color:#4a5668}.nav-links a:hover{color:var(--blue)}.nav-links .contact-nav{padding:10px 17px;background:var(--ink);color:#fff;border-radius:6px}.nav-links .contact-nav:hover{color:#fff;background:var(--blue)}.menu{display:none;border:0;background:none;font-size:24px;color:var(--ink);cursor:pointer}
+.hero{padding:116px 0 105px;display:grid;grid-template-columns:1.13fr .87fr;align-items:center;gap:65px}.hero-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:700;color:var(--blue)}.hero-label:before{content:'';display:block;width:25px;height:3px;background:var(--blue)}.hero h1{font-size:clamp(49px,6.5vw,86px);line-height:1.17;letter-spacing:-.085em;margin:26px 0 23px;font-weight:800}.hero h1 em{font-style:normal;color:var(--blue)}.hero-sub{font-size:19px;letter-spacing:-.04em;font-weight:600;margin:0 0 18px}.hero-desc{font-size:15px;color:var(--muted);max-width:505px;margin:0 0 34px;word-break:keep-all}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:13px 20px;font-size:13px;font-weight:700;border:1px solid var(--ink);border-radius:6px;transition:background .2s,transform .2s}.btn:hover{transform:translateY(-2px)}.btn-main{background:var(--blue);color:#fff;border-color:var(--blue)}.btn-main:hover{background:var(--blue-ink)}.btn-outline{background:transparent}.btn-outline:hover{background:#eaedf3}
+.hero-art{position:relative;min-height:415px;display:flex;align-items:center;justify-content:center}.art-back{position:absolute;inset:34px 3px 20px 26px;background:#e6ebfb;border-radius:32% 24% 27% 20%;transform:rotate(-9deg)}.art-panel{position:relative;background:#fff;border:1px solid #dce2f2;box-shadow:0 26px 65px rgba(30,53,118,.12);border-radius:17px;width:100%;max-width:440px;overflow:hidden}.art-caption{padding:17px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5eaf2;font-size:11px;font-weight:700;color:#6b7790}.art-caption span:last-child{display:flex;gap:6px}.art-caption i{display:block;width:7px;height:7px;background:#b9c4d9;border-radius:50%}.art-caption i:first-child{background:var(--blue)}.art-svg{display:block;width:100%;height:auto}.floating-label{position:absolute;bottom:20px;right:-15px;background:var(--ink);color:#fff;padding:13px 18px;border-radius:8px;box-shadow:0 10px 30px #27324b33;font-size:12px;font-weight:700}.floating-label span{color:#91a8ff}
+.quickline{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;gap:32px;align-items:center;justify-content:space-between;padding:24px 0}.quickline p{margin:0;color:var(--muted);font-size:13px}.quickline strong{color:var(--ink);font-weight:800}.quickline .social{display:flex;gap:24px}.quickline .social a{font-size:13px;font-weight:700;color:var(--blue)}
+.section{padding:112px 0}.section + .section{border-top:1px solid var(--rule)}.section-top{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:43px}.section-kicker{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.025em}.section h2{font-size:clamp(32px,4vw,49px);line-height:1.24;letter-spacing:-.065em;margin:11px 0 0}.section-top p{color:var(--muted);font-size:14px;max-width:350px;margin:0;word-break:keep-all}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}.filter{border:1px solid var(--rule);padding:9px 15px;border-radius:40px;background:transparent;cursor:pointer;color:var(--muted);font-size:12px;font-weight:700}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.filter:hover:not(.active){color:var(--blue);border-color:#93a7f6}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.project-card{background:var(--white);border:1px solid var(--rule);border-radius:13px;overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px #263d6212}.project-cover{height:190px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#eaeefe}.project-cover svg{width:100%;height:100%}.project-card[data-category=network] .project-cover{background:#e7f1f5}.project-card[data-category=dev] .project-cover{background:#f1eafb}.project-body{padding:26px 28px 27px;flex:1;display:flex;flex-direction:column}.project-info{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.project-category{font-size:11px;color:var(--blue);font-weight:800}.project-status{font-size:10px;color:#93652b;background:#fff3df;border-radius:4px;padding:4px 7px;font-weight:700}.project-body h3{font-size:20px;line-height:1.43;letter-spacing:-.045em;margin:0 0 9px;word-break:keep-all}.project-body p{font-size:13px;color:var(--muted);margin:0 0 22px;word-break:keep-all}.project-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.project-tags span{background:#f1f3f8;color:#606d81;border-radius:4px;font-size:10px;padding:4px 8px;font-weight:600}.project-link{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-weight:800;font-size:12px;margin-top:23px}.project-link:hover{text-decoration:underline}.project-unavailable{margin-top:23px;color:#9aa4b4;font-size:12px}
+.about-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:120px}.about-lead{font-size:22px;font-weight:700;line-height:1.55;letter-spacing:-.05em;word-break:keep-all;margin:22px 0}.about-lead span{color:var(--blue)}.about-note{font-size:14px;color:var(--muted);word-break:keep-all}.stack{margin-top:30px;display:flex;gap:8px;flex-wrap:wrap}.stack span{font-size:12px;border:1px solid #d6dce7;border-radius:5px;padding:7px 11px;color:#556174;background:#fff}.details-block h3{font-size:17px;margin:0 0 22px;letter-spacing:-.03em}.experience{border-left:2px solid #c7d2fa;margin-left:5px;padding-left:24px;position:relative}.experience:before{content:'';position:absolute;left:-6px;top:6px;width:10px;height:10px;background:var(--blue);border-radius:50%}.date{font-size:12px;font-weight:800;color:var(--blue)}.experience h4{font-size:17px;margin:5px 0}.experience p{font-size:13px;color:var(--muted);margin:0}.awards-list{margin-top:48px}.award{display:grid;grid-template-columns:62px 1fr;gap:16px;border-top:1px solid var(--rule);padding:18px 0}.award-year{font-size:12px;color:var(--blue);font-weight:800;padding-top:3px}.award h4{font-size:14px;line-height:1.5;margin:0 0 5px}.award p{font-size:12px;color:var(--muted);margin:0}
+.contact-section{background:#eaf0ff;border-top:1px solid #dae3ff!important}.contact-inner{display:flex;align-items:end;justify-content:space-between;gap:50px}.contact-inner h2{font-size:clamp(40px,5.5vw,70px);line-height:1.16;margin:15px 0 15px;letter-spacing:-.075em}.contact-inner p{font-size:14px;color:#5e6b85;max-width:450px}.contact-ctas{display:flex;flex-direction:column;gap:12px;min-width:240px}.contact-ctas a{display:flex;justify-content:space-between;align-items:center;padding:15px 18px;border:1px solid #c7d2f2;background:#fff;border-radius:6px;font-weight:700;font-size:13px;color:var(--ink)}.contact-ctas a:hover{border-color:var(--blue);color:var(--blue)}footer{display:flex;justify-content:space-between;gap:20px;padding:28px 0 42px;color:#7f889a;font-size:12px}footer a{color:var(--blue);font-weight:700}
+@media(max-width:900px){.hero{gap:35px}.about-layout{gap:55px}.floating-label{right:0}}@media(max-width:700px){.container{width:calc(100% - 36px)}.nav{height:66px}.menu{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:66px;flex-direction:column;align-items:stretch;padding:20px;background:var(--paper);border-bottom:1px solid var(--rule);gap:18px}.nav-links.open{display:flex}.hero{padding:72px 0;grid-template-columns:1fr;gap:44px}.hero h1{font-size:clamp(47px,10vw,65px)}.hero-art{min-height:320px}.art-panel{max-width:400px}.quickline{align-items:flex-start;flex-direction:column;gap:12px}.section{padding:75px 0}.section-top{display:block;margin-bottom:30px}.section-top p{margin-top:17px}.project-grid{grid-template-columns:1fr}.project-cover{height:175px}.about-layout{grid-template-columns:1fr;gap:50px}.contact-inner{display:block}.contact-ctas{margin-top:30px;min-width:0}footer{flex-direction:column;gap:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+</style></head><body>
+<div class="nav-wrap"><nav class="container nav" aria-label="주 메뉴"><a class="logo" href="#home">WONIL<b>.</b></a><button class="menu" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">☰</button><div class="nav-links" id="nav-links"><a href="#projects">Projects</a><a href="#about">About</a><a href="#awards">Awards</a><a class="contact-nav" href="#contact">Contact</a></div></nav></div>
+<main><div class="container"><header class="hero" id="home"><div><div class="hero-label">System Engineer Portfolio</div><h1>안녕하세요,<br>정원일<em>입니다.</em></h1><p class="hero-sub">인프라를 이해하고, 직접 만들어가는 엔지니어.</p><p class="hero-desc">서버와 네트워크, 가상화부터 클라우드까지. 기술을 단순히 사용하는 데 그치지 않고 직접 구축하고 실험하며 성장하고 있습니다.</p><div class="hero-actions"><a class="btn btn-main" href="#projects">프로젝트 보기 <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://github.com/bufferof" target="_blank" rel="noopener noreferrer">GitHub 방문 <span aria-hidden="true">↗</span></a></div></div><div class="hero-art" aria-label="서버와 클라우드 인프라를 연결한 추상 네트워크 일러스트레이션"><div class="art-back"></div><div class="art-panel"><div class="art-caption">NETWORK / INFRASTRUCTURE <span><i></i><i></i><i></i></span></div><svg class="art-svg" viewBox="0 0 450 325" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="서버, 클라우드, 네트워크가 연결된 구조"><defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#d6def3"/></pattern></defs><rect width="450" height="325" fill="#fff"/><rect width="450" height="325" fill="url(#dots)"/><g fill="none" stroke="#9fb2eb" stroke-width="2.3" stroke-dasharray="6 7"><path d="M223 151L98 91M223 151L360 93M223 151L100 256M223 151L347 253"/></g><circle cx="223" cy="151" r="62" fill="#e9eeff"/><circle cx="223" cy="151" r="49" fill="#3054e8"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"><rect x="201" y="129" width="44" height="15" rx="3"/><rect x="201" y="151" width="44" height="15" rx="3"/><circle cx="209" cy="137" r="2" fill="#fff"/><circle cx="209" cy="159" r="2" fill="#fff"/></g><g fill="#fff" stroke="#cad5ee" stroke-width="2"><rect x="49" y="52" width="103" height="75" rx="10"/><rect x="301" y="52" width="103" height="75" rx="10"/><rect x="50" y="219" width="103" height="75" rx="10"/><rect x="297" y="218" width="107" height="75" rx="10"/></g><g fill="none" stroke="#3054e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M84 86h28m-28 9h39m-39 9h24"/><path d="M330 87q-8-12 6-18q12-12 25 1q15-3 18 11q2 12-12 13h-31q-11 0-6-7z"/><path d="M78 246h47v26H78zM93 277h19"/><path d="M328 251l18-13 18 13v20l-18 12-18-12z"/></g><g fill="#64738b" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" font-weight="700"><text x="101" y="115">LINUX</text><text x="352" y="111">CLOUD</text><text x="102" y="288">SYSTEM</text><text x="352" y="289">NETWORK</text></g></svg></div><div class="floating-label">Build <span>·</span> Connect <span>·</span> Improve</div></div></header><div class="quickline"><p><strong>Focus</strong> &nbsp; Linux · Network · Virtualization · Cloud</p><div class="social"><a href="mailto:hewantsone@gmail.com">Email ↗</a><a href="https://github.com/bufferof" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></div>
+<section class="section" id="projects"><div class="container"><div class="section-top"><div><span class="section-kicker">My work</span><h2>프로젝트</h2></div><p>직접 설계하고 구현하며 배운 경험들을 정리했습니다. 각 프로젝트의 문제와 접근 방식을 살펴보세요.</p></div><div class="filters" role="group" aria-label="프로젝트 필터"><button class="filter active" data-filter="all" aria-pressed="true">전체</button><button class="filter" data-filter="infra" aria-pressed="false">인프라 / 클라우드</button><button class="filter" data-filter="network" aria-pressed="false">네트워크 / 보안</button><button class="filter" data-filter="dev" aria-pressed="false">개발 / 분석</button></div><div class="project-grid" id="projects-list"></div></div></section>
+<section class="section" id="about"><div class="container"><div class="about-layout"><div><span class="section-kicker">About me</span><h2>저에 대해</h2><p class="about-lead">더 나은 시스템을 위해<br><span>끊임없이 실험하고 배웁니다.</span></p><p class="about-note">온프레미스와 클라우드를 공부하며, 네트워크·서버 인프라를 직접 다뤄보는 시스템 엔지니어 지망생입니다. 구성 원리를 이해하고 실제 환경에서 검증하는 과정을 중요하게 생각합니다.</p><div class="stack"><span>Linux</span><span>Proxmox</span><span>Cisco</span><span>Cloud</span><span>Python</span><span>Automation</span></div></div><div class="details-block"><h3>Education & Experience</h3><div id="experience-list"></div><div class="awards-list" id="awards"><h3>Awards & Recognition</h3><div id="awards-list"></div></div></div></div></div></section>
+<section class="section contact-section" id="contact"><div class="container contact-inner"><div><span class="section-kicker">Get in touch</span><h2>함께 이야기해요.</h2><p>프로젝트 협업이나 기술 교류, 궁금한 점이 있다면 편하게 연락해 주세요.</p></div><div class="contact-ctas" id="contact-list"></div></div></section></main><footer class="container"><span>© 2026 정원일. All rights reserved.</span><a href="#home">맨 위로 ↑</a></footer>
+<script>
     const experience = [
       {
         year: "2025~",
@@ -260,42 +108,27 @@
       { label: "GitHub", value: "Repository", href: "https://github.com/bufferof" }
     ];
 
-    document.getElementById("experience-list").innerHTML = experience.map(e => `
-      <div class="exp-item">
-        <div class="exp-year">${e.year}</div>
-        <div>
-          <div class="exp-role">${e.role}${e.current ? '<span class="tag-current">Current</span>' : ''}</div>
-          <div class="exp-desc">${e.desc}</div>
-        </div>
-      </div>
-    `).join("");
 
-    document.getElementById("awards-list").innerHTML = awards.map(a => `
-      <div class="award-item">
-        <div>
-          <div class="award-title">${a.title}</div>
-          <div class="award-org">${a.org}</div>
-        </div>
-        <div class="award-year">${a.year}</div>
-      </div>
-    `).join("");
 
-    document.getElementById("projects-list").innerHTML = projects.map(p => `
-      <div class="project-item">
-        <div class="project-title">${p.title}</div>
-        <div class="project-desc">${p.desc}</div>
-        <div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join("")}</div>
-        <a class="project-link" href="${p.link}">자세히 보기 →</a>
-      </div>
-    `).join("");
-
-    document.getElementById("contact-list").innerHTML = contact.map(c => `
-      <div class="contact-item">
-        <span>${c.label}</span>
-        <a href="${c.href}" target="_blank" rel="noopener noreferrer">${c.value}</a>
-      </div>
-    `).join("");
-  </script>
-
-</body>
-</html>
+const categories=['infra','network','infra','network','dev','infra','infra','dev'];
+const catNames={infra:'INFRASTRUCTURE',network:'NETWORK & SECURITY',dev:'DEVELOPMENT'};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function cover(i){
+ const palettes=[['#3054e8','#b3c3ff'],['#167b95','#a4d8e1'],['#5269c7','#b8c7f5'],['#26768e','#a1d7e5'],['#8253b7','#d6c4ef'],['#425fbd','#bfcbf5'],['#6472c8','#bac4f0'],['#7d5eac','#d9c7ed']];const [a,b]=palettes[i];
+ const diagrams=[`<rect x="100" y="65" width="320" height="150" rx="10" fill="#fff" stroke="${b}" stroke-width="3"/><path d="M100 100H420" stroke="${b}" stroke-width="2"/><path d="M130 180l55-34 43 18 65-67 57 26 43-34" fill="none" stroke="${a}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`,
+ `<g stroke="${a}" stroke-width="4" fill="#fff"><rect x="66" y="98" width="110" height="66" rx="8"/><rect x="344" y="98" width="110" height="66" rx="8"/><rect x="205" y="42" width="110" height="66" rx="8"/><rect x="205" y="172" width="110" height="66" rx="8"/></g><g stroke="${a}" stroke-width="4" stroke-dasharray="8 7"><path d="M176 131H344M260 108v64"/></g>`,
+ `<g fill="#fff" stroke="${a}" stroke-width="4"><rect x="98" y="75" width="132" height="126" rx="12"/><rect x="294" y="75" width="132" height="126" rx="12"/></g><path d="M230 137H294" stroke="${a}" stroke-width="5" stroke-dasharray="8 6"/><path d="M124 109h80m-80 21h65m-65 21h77m119-42h80m-80 21h60m-60 21h70" stroke="${b}" stroke-width="8" stroke-linecap="round"/>`,
+ `<path d="M55 155Q110 40 165 155T275 155T385 155T495 155" fill="none" stroke="${a}" stroke-width="6"/><path d="M55 155Q110 270 165 155T275 155T385 155T495 155" fill="none" stroke="${b}" stroke-width="5"/><path d="M55 155H495" stroke="${a}" opacity=".3" stroke-dasharray="8 9"/>`,
+ `<g stroke="${a}" stroke-width="4" fill="none"><path d="M98 75l120 74-120 74M418 75l-120 74 120 74"/><circle cx="98" cy="75" r="12" fill="${b}"/><circle cx="98" cy="223" r="12" fill="${b}"/><circle cx="418" cy="75" r="12" fill="${b}"/><circle cx="418" cy="223" r="12" fill="${b}"/><circle cx="258" cy="149" r="23" fill="#fff"/></g>`,
+ `<rect x="90" y="60" width="150" height="170" rx="10" fill="#fff" stroke="${a}" stroke-width="4"/><rect x="290" y="60" width="150" height="170" rx="10" fill="#fff" stroke="${a}" stroke-width="4"/><path d="M240 145H290m-15-15 15 15-15 15" fill="none" stroke="${a}" stroke-width="5"/><path d="M115 99h100m-100 28h75m125-28h100m-100 28h80" stroke="${b}" stroke-width="8" stroke-linecap="round"/>`,
+ `<g fill="none" stroke="${a}" stroke-width="5"><rect x="105" y="72" width="120" height="150" rx="10"/><rect x="295" y="72" width="120" height="150" rx="10"/><path d="M225 145h70" stroke-dasharray="7 8"/></g><g fill="${b}"><circle cx="165" cy="147" r="30"/><circle cx="355" cy="147" r="30"/></g>`,
+ `<path d="M68 208H470M92 75v133" stroke="${a}" stroke-width="4"/><path d="M95 96l62 12 52 27 60 12 53 29 54 10 63 13" fill="none" stroke="${a}" stroke-width="6" stroke-linecap="round"/><path d="M95 104l62 9 52 24 60 14 53 22 54 14 63 10" fill="none" stroke="${b}" stroke-width="4" stroke-dasharray="7 6"/>`];
+ return `<svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="p${i}" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="${b}" opacity=".6"/></pattern></defs><rect width="520" height="280" fill="url(#p${i})"/>${diagrams[i]}</svg>`;
+}
+function renderProjects(filter='all'){document.getElementById('projects-list').innerHTML=projects.map((p,i)=>({p,i})).filter(({i})=>filter==='all'||categories[i]===filter).map(({p,i})=>{const ongoing=p.title.includes('진행 중');const title=p.title.replace(/\s*\(진행 중\)/g,'');const valid=p.link&&p.link!=='#';return `<article class="project-card" data-category="${categories[i]}"><div class="project-cover">${cover(i)}</div><div class="project-body"><div class="project-info"><span class="project-category">${catNames[categories[i]]}</span>${ongoing?'<span class="project-status">진행 중</span>':''}</div><h3>${esc(title)}</h3><p>${esc(p.desc)}</p><div class="project-tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>${valid?`<a class="project-link" href="${esc(p.link)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(title)} 자세히 보기">프로젝트 자세히 보기 <span aria-hidden="true">↗</span></a>`:'<span class="project-unavailable">프로젝트 소개 링크 준비 중</span>'}</div></article>`}).join('')}
+renderProjects();document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});renderProjects(b.dataset.filter)}));
+document.getElementById('experience-list').innerHTML=experience.map(e=>`<article class="experience"><div class="date">${esc(e.year)}</div><h4>${esc(e.role)}</h4><p>${esc(e.desc)}</p></article>`).join('');
+document.getElementById('awards-list').innerHTML=awards.map(a=>`<article class="award"><span class="award-year">${esc(a.year)}</span><div><h4>${esc(a.title)}</h4><p>${esc(a.org)}</p></div></article>`).join('');
+document.getElementById('contact-list').innerHTML=contact.map(c=>`<a href="${esc(c.href)}" ${c.href.startsWith('https')?'target="_blank" rel="noopener noreferrer"':''}><span>${esc(c.label==='GitHub'?'GitHub / bufferof':c.value)}</span><span aria-hidden="true">↗</span></a>`).join('');
+const menu=document.querySelector('.menu'),nav=document.querySelector('.nav-links');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
+</script></body></html>
