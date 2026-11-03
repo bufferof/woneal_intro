@@ -38,6 +38,70 @@
 :root[data-theme="dark"] .hero-art .art-panel{box-shadow:0 26px 65px rgba(0,0,0,.25)}:root[data-theme="dark"] .project-card:hover{box-shadow:0 16px 36px rgba(0,0,0,.25)}
 @media(max-width:700px){.nav-links{background:var(--paper)}.nav-actions{gap:8px}.theme-toggle{width:38px;height:38px}}
 @media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
+/* Header alignment: brand on left, navigation and theme button on right. */
+.nav{justify-content:initial;gap:28px}
+.logo{flex-shrink:0;margin-right:auto}
+.nav-links{order:1;margin-left:auto}
+.nav-actions{order:2;flex-shrink:0;margin-left:6px}
+@media(max-width:700px){.nav{gap:12px}.nav-links{order:3;margin-left:0}.nav-actions{order:2;margin-left:auto}}
+
+/* Enable color interpolation only after the initial theme has been painted. */
+:root.theme-ready body,
+:root.theme-ready .nav-wrap,
+:root.theme-ready .nav-links,
+:root.theme-ready .nav-links a,
+:root.theme-ready .btn,
+:root.theme-ready .filter,
+:root.theme-ready .project-card,
+:root.theme-ready .project-cover,
+:root.theme-ready .project-tags span,
+:root.theme-ready .project-status,
+:root.theme-ready .project-unavailable,
+:root.theme-ready .art-back,
+:root.theme-ready .art-panel,
+:root.theme-ready .art-caption,
+:root.theme-ready .art-caption i,
+:root.theme-ready .floating-label,
+:root.theme-ready .stack span,
+:root.theme-ready .contact-section,
+:root.theme-ready .contact-ctas a,
+:root.theme-ready .theme-toggle,
+:root.theme-ready .experience,
+:root.theme-ready footer,
+:root.theme-ready h1,
+:root.theme-ready h2,
+:root.theme-ready h3,
+:root.theme-ready h4,
+:root.theme-ready p,
+:root.theme-ready span,
+:root.theme-ready a {
+  transition-property:background-color,color,border-color,box-shadow,fill,stroke;
+  transition-duration:480ms;
+  transition-timing-function:cubic-bezier(.22,1,.36,1);
+}
+/* In dark mode, don't leave a bright white square in the hero illustration. */
+:root.theme-ready .art-svg > rect,
+:root.theme-ready .art-svg > g > rect {transition:fill 480ms cubic-bezier(.22,1,.36,1),stroke 480ms cubic-bezier(.22,1,.36,1)}
+:root[data-theme="dark"] .art-svg > rect:first-of-type{fill:#192338}
+:root[data-theme="dark"] .art-svg > g[fill="#fff"] > rect{fill:#273654;stroke:#4a6387}
+:root[data-theme="dark"] .art-svg pattern circle{fill:#3a4b68}
+/* Keep motion accessible. */
+@media(prefers-reduced-motion:reduce){
+ :root.theme-ready body,:root.theme-ready .nav-wrap,:root.theme-ready .nav-links,
+ :root.theme-ready .nav-links a,:root.theme-ready .btn,:root.theme-ready .filter,
+ :root.theme-ready .project-card,:root.theme-ready .project-cover,
+ :root.theme-ready .project-tags span,:root.theme-ready .project-status,
+ :root.theme-ready .project-unavailable,:root.theme-ready .art-back,
+ :root.theme-ready .art-panel,:root.theme-ready .art-caption,
+ :root.theme-ready .art-caption i,:root.theme-ready .floating-label,
+ :root.theme-ready .stack span,:root.theme-ready .contact-section,
+ :root.theme-ready .contact-ctas a,:root.theme-ready .theme-toggle,
+ :root.theme-ready .experience,:root.theme-ready footer,:root.theme-ready h1,
+ :root.theme-ready h2,:root.theme-ready h3,:root.theme-ready h4,
+ :root.theme-ready p,:root.theme-ready span,:root.theme-ready a,
+ :root.theme-ready .art-svg > rect,:root.theme-ready .art-svg > g > rect {transition:none!important}
+}
 </style></head><body>
 <div class="nav-wrap"><nav class="container nav" aria-label="주 메뉴"><a class="logo" href="#home">WONEAL<b>.</b></a><div class="nav-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="다크 모드 켜기" title="테마 전환" aria-pressed="false"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8a8.5 8.5 0 1 0 11.7 11.7Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button><button class="menu" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">☰</button></div><div class="nav-links" id="nav-links"><a href="#projects">Projects</a><a href="#about">About</a><a href="#awards">Awards</a><a class="contact-nav" href="#contact">Contact</a></div></nav></div>
 <main><div class="container"><header class="hero" id="home"><div><div class="hero-label">System Engineer Portfolio</div><h1>안녕하세요,<br>정원일<em>입니다.</em></h1><p class="hero-sub">인프라를 이해하고, 직접 만들어가는 엔지니어.</p><p class="hero-desc">서버와 네트워크, 가상화부터 클라우드까지. 기술을 단순히 사용하는 데 그치지 않고 직접 구축하고 실험하며 성장하고 있습니다.</p><div class="hero-actions"><a class="btn btn-main" href="#projects">프로젝트 보기 <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="https://github.com/bufferof" target="_blank" rel="noopener noreferrer">GitHub 방문 <span aria-hidden="true">↗</span></a></div></div><div class="hero-art" aria-label="서버와 클라우드 인프라를 연결한 추상 네트워크 일러스트레이션"><div class="art-back"></div><div class="art-panel"><div class="art-caption">NETWORK / INFRASTRUCTURE <span><i></i><i></i><i></i></span></div><svg class="art-svg" viewBox="0 0 450 325" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="서버, 클라우드, 네트워크가 연결된 구조"><defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.2" fill="#d6def3"/></pattern></defs><rect width="450" height="325" fill="#fff"/><rect width="450" height="325" fill="url(#dots)"/><g fill="none" stroke="#9fb2eb" stroke-width="2.3" stroke-dasharray="6 7"><path d="M223 151L98 91M223 151L360 93M223 151L100 256M223 151L347 253"/></g><circle cx="223" cy="151" r="62" fill="#e9eeff"/><circle cx="223" cy="151" r="49" fill="#3054e8"/><g stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"><rect x="201" y="129" width="44" height="15" rx="3"/><rect x="201" y="151" width="44" height="15" rx="3"/><circle cx="209" cy="137" r="2" fill="#fff"/><circle cx="209" cy="159" r="2" fill="#fff"/></g><g fill="#fff" stroke="#cad5ee" stroke-width="2"><rect x="49" y="52" width="103" height="75" rx="10"/><rect x="301" y="52" width="103" height="75" rx="10"/><rect x="50" y="219" width="103" height="75" rx="10"/><rect x="297" y="218" width="107" height="75" rx="10"/></g><g fill="none" stroke="#3054e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M84 86h28m-28 9h39m-39 9h24"/><path d="M330 87q-8-12 6-18q12-12 25 1q15-3 18 11q2 12-12 13h-31q-11 0-6-7z"/><path d="M78 246h47v26H78zM93 277h19"/><path d="M328 251l18-13 18 13v20l-18 12-18-12z"/></g><g fill="#64738b" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" font-weight="700"><text x="101" y="115">LINUX</text><text x="352" y="111">CLOUD</text><text x="102" y="288">SYSTEM</text><text x="352" y="289">NETWORK</text></g></svg></div><div class="floating-label">Build <span>·</span> Connect <span>·</span> Improve</div></div></header><div class="quickline"><p><strong>Focus</strong> &nbsp; Linux · Network · Virtualization · Cloud</p><div class="social"><a href="mailto:hewantsone@gmail.com">Email ↗</a><a href="https://github.com/bufferof" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></div>
@@ -157,6 +221,7 @@ document.getElementById('awards-list').innerHTML=awards.map(a=>`<article class="
 document.getElementById('contact-list').innerHTML=contact.map(c=>`<a href="${esc(c.href)}" ${c.href.startsWith('https')?'target="_blank" rel="noopener noreferrer"':''}><span>${esc(c.label==='GitHub'?'GitHub / bufferof':c.value)}</span><span aria-hidden="true">↗</span></a>`).join('');
 const menu=document.querySelector('.menu'),nav=document.querySelector('.nav-links');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
 
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.documentElement.classList.add('theme-ready')));
 const themeToggle=document.getElementById('theme-toggle');
 function syncThemeButton(){const dark=document.documentElement.dataset.theme==='dark';themeToggle.setAttribute('aria-label',dark?'라이트 모드 켜기':'다크 모드 켜기');themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.title=dark?'라이트 모드로 전환':'다크 모드로 전환';}
 themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;document.querySelector('meta[name="theme-color"]').setAttribute('content',next==='dark'?'#101727':'#f7f8fb');try{localStorage.setItem('portfolio-theme',next)}catch(e){}syncThemeButton()});
